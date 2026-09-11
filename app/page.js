@@ -11,18 +11,18 @@ const products = [
     badge: "Live"
   },
   {
-    name: "AppraisalIQ",
-    eyebrow: "APPRAISAL INTELLIGENCE",
-    description: "AI-assisted analysis for FNMA 1004 appraisal reports, risk review, and Fair Housing language checks.",
-    href: "#",
-    badge: "In development"
-  },
-  {
     name: "UWAYS",
     eyebrow: "GLOBAL DRIVER NETWORK",
     description: "Connects professional drivers, fleets, and affiliates worldwide to find backup support, assign rides, and coordinate trips in real time.",
     href: "https://uways.com",
     badge: "Live"
+  },
+  {
+    name: "AppraisalIQ",
+    eyebrow: "APPRAISAL INTELLIGENCE",
+    description: "AI-assisted analysis for FNMA 1004 appraisal reports, risk review, and Fair Housing language checks.",
+    href: "#",
+    badge: "In development"
   }
 ];
 
