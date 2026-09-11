@@ -1,3 +1,5 @@
+"use client";
+
 import "./globals.css";
 
 const products = [
@@ -24,18 +26,23 @@ const services = [
   ["Ongoing Support", "Long-term technology support after launch, not just a handoff."]
 ];
 
+function scrollToSection(e, id) {
+  e.preventDefault();
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function Home() {
   return (
     <main>
       <header className="nav shell">
-        <a className="brand" href="#top" aria-label="Oramusa home">
+        <a className="brand" href="#top" aria-label="Oramusa home" onClick={(e) => scrollToSection(e, "top")}>
           <span>Oram</span><em>usa</em>
         </a>
         <nav className="navLinks">
-          <a href="#products">Products</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#roadmap">Roadmap</a>
+          <a href="#products" onClick={(e) => scrollToSection(e, "products")}>Products</a>
+          <a href="#services" onClick={(e) => scrollToSection(e, "services")}>Services</a>
+          <a href="#about" onClick={(e) => scrollToSection(e, "about")}>About</a>
+          <a href="#roadmap" onClick={(e) => scrollToSection(e, "roadmap")}>Roadmap</a>
         </nav>
         <a className="navCta" href="mailto:hello@oramusa.com">Get in touch</a>
       </header>
@@ -50,8 +57,8 @@ export default function Home() {
               inefficient, and genuinely painful to work around every day.
             </p>
             <div className="actions">
-              <a className="primary" href="#products">See our products <b>→</b></a>
-              <a className="secondary" href="#about">About the studio</a>
+              <a className="primary" href="#products" onClick={(e) => scrollToSection(e, "products")}>See our products <b>→</b></a>
+              <a className="secondary" href="#about" onClick={(e) => scrollToSection(e, "about")}>About the studio</a>
             </div>
           </div>
           <div className="heroArt" aria-hidden="true">
@@ -150,7 +157,7 @@ export default function Home() {
       </section>
 
       <footer className="footer shell">
-        <a className="brand footerBrand" href="#top"><span>Oram</span><em>usa</em></a>
+        <a className="brand footerBrand" href="#top" onClick={(e) => scrollToSection(e, "top")}><span>Oram</span><em>usa</em></a>
         <p>Built for the real world.</p>
         <div>
           <a href="mailto:hello@oramusa.com">hello@oramusa.com</a>
