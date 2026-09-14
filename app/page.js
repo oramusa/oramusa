@@ -1,4 +1,5 @@
 "use client";
+import MobileMenu from "./MobileMenu";
 
 const products = [
   {
@@ -50,6 +51,7 @@ export default function Home() {
           <a href="#about" onClick={(e) => scrollToSection(e, "about")}>About</a>
           <a href="#roadmap" onClick={(e) => scrollToSection(e, "roadmap")}>Roadmap</a>
         </nav>
+        <MobileMenu />
         <a className="navCta" href="mailto:hello@oramusa.com">Get in touch</a>
       </header>
 

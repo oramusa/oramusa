@@ -46,6 +46,13 @@ a{color:inherit;text-decoration:none}
   transition:.2s ease;
 }
 .navCta:hover,.primary:hover{transform:translateY(-1px);filter:brightness(.98)}
+.mobileMenu{display:none;position:relative;z-index:50}
+.mobileMenu summary{width:46px;height:46px;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;list-style:none;background:#fff}
+.mobileMenu summary::-webkit-details-marker{display:none}
+.mobileMenu summary span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px}
+.mobileMenu nav{position:absolute;right:0;top:56px;width:220px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(17,17,16,.18)}
+.mobileMenu nav a{display:block;padding:14px 15px;border-radius:7px;font-size:15px;font-weight:700}
+.mobileMenu nav a:hover{background:#f3eee4;color:#9b7427}
 
 .hero{
   background:
@@ -169,8 +176,10 @@ a{color:inherit;text-decoration:none}
 
 @media (max-width: 900px){
   .shell{width:min(100% - 32px,1180px)}
-  .nav{height:76px;grid-template-columns:1fr auto}
+  .nav{height:76px;grid-template-columns:1fr auto auto;gap:10px;position:relative;z-index:100}
   .navLinks{display:none}
+  .mobileMenu{display:block;order:3}
+  .navCta{order:2}
   .navCta{padding:12px 15px}
   .brand{font-size:28px}
   .heroGrid{grid-template-columns:1fr;min-height:auto;padding:70px 0 60px}

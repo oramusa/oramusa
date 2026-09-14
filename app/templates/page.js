@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import MobileMenu from "../MobileMenu";
 
 const templates = [
   { number:"01 / 04", type:"HOME SERVICES", name:"Evergreen", image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85", alt:"Modern home surrounded by professional landscaping", copy:"A confident, premium design for businesses whose work deserves to be seen. Built around calls and quote requests.", items:["Mobile-first design","Services and project showcase","Customer reviews","Quote request form","Hosting, security, and updates"], href:"/templates/evergreen", visual:"", tag:"", button:"" },
@@ -23,7 +24,7 @@ export default function TemplatesPage() {
     } catch { setStatus("error"); }
   }
   return <main className="templatesPage">
-    <header className="nav shell templatesNav"><Link className="brand" href="/"><span>Oram</span><em>usa</em></Link><nav className="navLinks"><Link href="/">Home</Link><a href="#templates">Templates</a><a href="#how">How it works</a></nav><a className="navCta" href="#start">Start my website</a></header>
+    <header className="nav shell templatesNav"><Link className="brand" href="/"><span>Oram</span><em>usa</em></Link><nav className="navLinks"><Link href="/">Home</Link><a href="#templates">Templates</a><a href="#how">How it works</a></nav><MobileMenu/><a className="navCta" href="#start">Start my website</a></header>
     <section className="templateHero"><div className="shell"><p className="kicker">ORAMUSA WEBSITE COLLECTION</p><h1>Choose your website.<br/><span>We make it yours.</span></h1><p>Professional websites for local businesses—with no large upfront bill. Pick a design, send us your details, and we handle the rest.</p><div className="pricePill"><strong>$0</strong><span>upfront</span><i/><strong>$99</strong><span>/ month</span></div></div></section>
     <section className="templateCatalog shell" id="templates"><div className="catalogHeading"><div><p className="kicker darkKicker">TEMPLATES 01–04</p><h2>Built to turn visitors<br/>into local customers.</h2></div><p>Choose a polished design for your industry. We customize the colors, content, services, photos, and contact details for your business.</p></div>
       {templates.map((template,index)=><article className={`templateCard ${index ? "templateCardSecond" : ""} ${selectedTemplate === template.name ? "templateChosen" : ""}`} key={template.name}><div className={`templateVisual ${template.visual}`}><img src={template.image} alt={template.alt}/><span className={`liveTag ${template.tag}`}>Live template</span></div><div className="templateInfo"><div><span className="templateType">{template.type}</span><span className="templateNumber">{template.number}</span></div><h3>{template.name}</h3><p>{template.copy}</p><ul>{template.items.map(item=><li key={item}>{item}</li>)}</ul><div className="templateActions"><Link className={`primary ${template.button}`} href={template.href}>View live preview ↗</Link><a className="outlineDark" href="#start" onClick={()=>setSelectedTemplate(template.name)}>Choose this template</a></div></div></article>)}
