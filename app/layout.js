@@ -3,6 +3,7 @@ import "./templates/templates.css";
 import "./templates/velocity/velocity.css";
 import "./templates/elan/elan.css";
 import "./templates/aurea/aurea.css";
+import "./templates/evergreen/evergreen.css";
 
 export const metadata = {
   title: "Oramusa — Software Studio",
