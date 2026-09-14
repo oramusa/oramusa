@@ -170,6 +170,8 @@ export default function Home() {
         <p>Built for the real world.</p>
         <div>
           <a href="mailto:hello@oramusa.com">hello@oramusa.com</a>
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
           <span>© {new Date().getFullYear()} Oramusa</span>
         </div>
       </footer>
