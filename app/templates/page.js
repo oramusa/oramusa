@@ -1,0 +1,26 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+const previewUrl = "https://evergreen-outdoor-template.oramusa.chatgpt.site";
+
+export default function TemplatesPage() {
+  const [sent, setSent] = useState(false);
+  function submitInterest(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const subject = encodeURIComponent(`Website request — ${data.get("business")}`);
+    const body = encodeURIComponent(`Business: ${data.get("business")}\nIndustry: ${data.get("industry")}\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone")}\nCurrent website/domain: ${data.get("domain") || "None"}\n\nNotes:\n${data.get("notes") || ""}`);
+    setSent(true);
+    window.location.href = `mailto:hello@oramusa.com?subject=${subject}&body=${body}`;
+  }
+  return <main className="templatesPage">
+    <header className="nav shell templatesNav"><Link className="brand" href="/"><span>Oram</span><em>usa</em></Link><nav className="navLinks"><Link href="/">Home</Link><a href="#templates">Templates</a><a href="#how">How it works</a></nav><a className="navCta" href="#start">Start my website</a></header>
+    <section className="templateHero"><div className="shell"><p className="kicker">ORAMUSA WEBSITE COLLECTION</p><h1>Choose your website.<br/><span>We make it yours.</span></h1><p>Professional websites for local businesses—with no large upfront bill. Pick a design, send us your details, and we handle the rest.</p><div className="pricePill"><strong>$0</strong><span>upfront</span><i></i><strong>$99</strong><span>/ month</span></div></div></section>
+    <section className="templateCatalog shell" id="templates"><div className="catalogHeading"><div><p className="kicker darkKicker">TEMPLATE 01</p><h2>Built to turn visitors<br/>into local customers.</h2></div><p>Our first design is made for landscapers and adapts beautifully to cleaning, roofing, painting, pool care, pressure washing, and other home services.</p></div><article className="templateCard"><div className="templateVisual"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85" alt="Modern home surrounded by professional landscaping"/><span className="liveTag">Live template</span></div><div className="templateInfo"><div><span className="templateType">HOME SERVICES</span><span className="templateNumber">01 / 01</span></div><h3>Evergreen</h3><p>A confident, premium design for businesses whose work deserves to be seen. Built around calls and quote requests.</p><ul><li>Mobile-first design</li><li>Services and project showcase</li><li>Customer reviews</li><li>Quote request form</li><li>Hosting, security, and updates</li></ul><div className="templateActions"><a className="primary" href={previewUrl} target="_blank" rel="noreferrer">View live preview ↗</a><a className="outlineDark" href="#start">Choose this template</a></div></div></article></section>
+    <section className="howSection" id="how"><div className="shell"><p className="kicker">HOW IT WORKS</p><h2>From template to your website.</h2><div className="howGrid">{[["01","Choose","Pick the design that fits your business."],["02","Personalize","Send your logo, services, photos, and contact details."],["03","Approve","Review your customized website and request changes."],["04","Launch","We connect your domain and keep everything running."]].map(([n,t,p])=><div key={n}><b>{n}</b><h3>{t}</h3><p>{p}</p></div>)}</div></div></section>
+    <section className="startSection shell" id="start"><div className="startCopy"><p className="kicker darkKicker">START YOUR WEBSITE</p><h2>Tell us about<br/>your business.</h2><p>No payment today. We’ll review your details and contact you to confirm the right fit before anything begins.</p><div className="included"><strong>$99/month includes</strong><span>Custom setup · Hosting · SSL security · Mobile optimization · Maintenance · Content updates</span></div></div><form className="startForm" onSubmit={submitInterest}><label>Business name<input name="business" placeholder="Your business" required/></label><label>Industry<input name="industry" placeholder="Landscaping, roofing…" required/></label><label>Your name<input name="name" placeholder="First and last name" required/></label><label>Email<input name="email" type="email" placeholder="you@business.com" required/></label><label>Phone<input name="phone" type="tel" placeholder="(407) 555-0000" required/></label><label>Current website or domain<input name="domain" placeholder="Optional"/></label><label className="formFull">Anything else we should know?<textarea name="notes" placeholder="Services, goals, or questions"/></label><button className="primary formFull" type="submit">Send my website request →</button>{sent&&<p className="formNote formFull">Your email app is opening with your request ready to send.</p>}</form></section>
+    <footer className="footer shell"><Link className="brand footerBrand" href="/"><span>Oram</span><em>usa</em></Link><p>Beautiful websites. Zero upfront.</p><div><a href="mailto:hello@oramusa.com">hello@oramusa.com</a><span>© {new Date().getFullYear()} Oramusa</span></div></footer>
+  </main>;
+}

@@ -1,7 +1,5 @@
 "use client";
 
-import "./globals.css";
-
 const products = [
   {
     name: "QRTurnover",
@@ -27,7 +25,7 @@ const products = [
 ];
 
 const services = [
-  ["Websites", "$0-upfront professional websites with hosting, maintenance, and support."],
+  ["Websites", "$0-upfront professional websites with hosting, maintenance, and support.", "/templates"],
   ["Custom Software", "Purpose-built web applications for businesses with specific operational needs."],
   ["AI & Automation", "Practical automations and AI integrations that save time and reduce manual work."],
   ["Ongoing Support", "Long-term technology support after launch, not just a handoff."]
@@ -48,6 +46,7 @@ export default function Home() {
         <nav className="navLinks">
           <a href="#products" onClick={(e) => scrollToSection(e, "products")}>Products</a>
           <a href="#services" onClick={(e) => scrollToSection(e, "services")}>Services</a>
+          <a href="/templates">Templates</a>
           <a href="#about" onClick={(e) => scrollToSection(e, "about")}>About</a>
           <a href="#roadmap" onClick={(e) => scrollToSection(e, "roadmap")}>Roadmap</a>
         </nav>
@@ -126,11 +125,12 @@ export default function Home() {
             <p>Oramusa also helps businesses build and improve the technology they rely on.</p>
           </div>
           <div className="serviceGrid">
-            {services.map(([title, desc], i) => (
-              <div className="serviceItem" key={title}>
+            {services.map(([title, desc, href], i) => (
+              <div className={`serviceItem ${href ? "linkedService" : ""}`} key={title}>
                 <span>0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{desc}</p>
+                {href && <a href={href}>Browse templates →</a>}
               </div>
             ))}
           </div>

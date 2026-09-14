@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "Oramusa — Software Studio",
   description: "Focused software for real businesses. Websites, software, and AI.",
