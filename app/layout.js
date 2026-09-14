@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./templates/templates.css";
+import "./templates/velocity/velocity.css";
 
 export const metadata = {
   title: "Oramusa — Software Studio",
