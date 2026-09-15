@@ -21,7 +21,7 @@ export default function EmberTemplate() {
     <header className="eNav">
       <Link className="eLogo" href="#top">EMBER<span>KITCHEN & TABLE</span></Link>
       <nav><a href="#story">Our story</a><a href="#menu">Menu</a><a href="#visit">Visit</a></nav>
-      <a className="eReserve" href="/templates#start">Reserve a table</a>
+      <a className="eReserve" href="#reserve">Reserve a table</a>
     </header>
 
     <section className="eHero" id="top">
@@ -31,7 +31,7 @@ export default function EmberTemplate() {
         <p>SEASONAL COOKING · ORLANDO, FLORIDA</p>
         <h1>Gather around<br/>something <i>memorable.</i></h1>
         <p>Ingredient-led cooking, warm hospitality, and a table waiting for you.</p>
-        <div><a className="ePrimary" href="/templates#start">Reserve your table</a><a href="#menu">Explore the menu ↓</a></div>
+        <div><a className="ePrimary" href="#reserve">Reserve your table</a><a href="#menu">Explore the menu ↓</a></div>
       </div>
       <div className="eHeroFoot"><span>DINNER · TUESDAY–SUNDAY</span><span>407 555 0188</span></div>
     </section>
@@ -52,10 +52,21 @@ export default function EmberTemplate() {
       <a className="eMenuLink" href="/templates#start">View full menu ↗</a>
     </section>
 
+    <section className="eBooking" id="reserve">
+      <div className="eBookingIntro"><p className="eEyebrow">RESERVATIONS</p><h2>Your table<br/>is waiting.</h2><p>Choose your preferred evening and party size. Every customer version can connect directly to OpenTable, Resy, Toast, Square, or another reservation platform.</p></div>
+      <form className="eBookingCard" action="/templates#start">
+        <div><label htmlFor="reservation-date">Date</label><input id="reservation-date" type="date" required/></div>
+        <div><label htmlFor="reservation-time">Time</label><select id="reservation-time" defaultValue="" required><option value="" disabled>Select a time</option><option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option><option>8:30 PM</option></select></div>
+        <div><label htmlFor="party-size">Party size</label><select id="party-size" defaultValue="2 guests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7+ guests</option></select></div>
+        <button type="submit">Find a table →</button>
+        <p>Template demonstration — your live website will connect to your restaurant’s booking provider.</p>
+      </form>
+    </section>
+
     <section className="eQuote"><blockquote>“The kind of restaurant you hope to discover—and immediately plan to visit again.”</blockquote><p>— ORLANDO TABLE</p></section>
 
     <section className="eVisit" id="visit">
-      <div><p className="eEyebrow">COME TO THE TABLE</p><h2>Dinner starts<br/>at <i>five.</i></h2><a className="ePrimary" href="/templates#start">Make a reservation</a></div>
+      <div><p className="eEyebrow">COME TO THE TABLE</p><h2>Dinner starts<br/>at <i>five.</i></h2><a className="ePrimary" href="#reserve">Make a reservation</a></div>
       <div className="eVisitDetails"><article><span>ADDRESS</span><p>128 E. New England Avenue<br/>Winter Park, FL 32789</p></article><article><span>HOURS</span><p>Tuesday–Thursday · 5–10 PM<br/>Friday–Saturday · 5–11 PM<br/>Sunday · 5–9 PM</p></article><article><span>CONTACT</span><p>(407) 555-0188<br/>hello@emberkitchen.com</p></article></div>
     </section>
 
