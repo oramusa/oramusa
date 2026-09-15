@@ -14,6 +14,7 @@ export async function POST(request) {
   if (!body || body.website) return NextResponse.json({ ok: true });
   const required = ["template", "business", "industry", "name", "email", "phone"];
   if (required.some((field) => !clean(body[field], 120))) return NextResponse.json({ error: "Please complete all required fields" }, { status: 400 });
+  if (body.scopeAccepted !== "yes") return NextResponse.json({ error: "Please accept the plan scope and Terms" }, { status: 400 });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(body.email, 160))) return NextResponse.json({ error: "Please enter a valid email" }, { status: 400 });
   const from = process.env.LEADS_FROM_EMAIL || "Oramusa <hello@oramusa.com>";
   const inbox = process.env.LEADS_TO_EMAIL || "hello@oramusa.com";
@@ -24,7 +25,7 @@ export async function POST(request) {
       from,
       to: [process.env.LEADS_TO_EMAIL || "hello@oramusa.com"], reply_to: clean(body.email, 160),
       subject: `New ${template} website request — ${business}`,
-      html: `<h2>New Oramusa website request</h2><p><strong>Template:</strong> ${escapeHtml(body.template)}</p><p><strong>Business:</strong> ${escapeHtml(body.business)}</p><p><strong>Industry:</strong> ${escapeHtml(body.industry)}</p><p><strong>Name:</strong> ${escapeHtml(body.name)}</p><p><strong>Email:</strong> ${escapeHtml(body.email)}</p><p><strong>Phone:</strong> ${escapeHtml(body.phone)}</p><p><strong>Domain:</strong> ${escapeHtml(body.domain || "None")}</p><p><strong>Notes:</strong><br>${escapeHtml(body.notes || "None")}</p>`
+      html: `<h2>New Oramusa website request</h2><p><strong>Template:</strong> ${escapeHtml(body.template)}</p><p><strong>Business:</strong> ${escapeHtml(body.business)}</p><p><strong>Industry:</strong> ${escapeHtml(body.industry)}</p><p><strong>Name:</strong> ${escapeHtml(body.name)}</p><p><strong>Email:</strong> ${escapeHtml(body.email)}</p><p><strong>Phone:</strong> ${escapeHtml(body.phone)}</p><p><strong>Domain:</strong> ${escapeHtml(body.domain || "None")}</p><p><strong>Scope and Terms acknowledged:</strong> Yes</p><p><strong>Notes:</strong><br>${escapeHtml(body.notes || "None")}</p>`
   });
   if (!leadResponse.ok) return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
 
