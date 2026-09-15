@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const metadata = { title: "Evergreen Landscaping Website Template", description: "A premium landscaping and home-services website template designed to generate calls and quote requests.", alternates: { canonical: "/templates/evergreen" } };
+
 const services = [
   ["01", "Landscape design", "Thoughtful outdoor plans shaped around your home, lifestyle, and Florida climate."],
   ["02", "Installation", "Planting, sod, stonework, lighting, and irrigation—managed from start to finish."],

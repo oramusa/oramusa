@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Privacy Policy | Oramusa", description: "How Oramusa collects, uses, and protects information." };
+export const metadata = { title: "Privacy Policy", description: "How Oramusa collects, uses, and protects information.", alternates: { canonical: "/privacy" } };
 
 export default function PrivacyPage() {
   return <main className="legalPage">

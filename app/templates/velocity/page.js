@@ -1,13 +1,13 @@
 import Link from "next/link";
 
+export const metadata = { title: "Velocity Auto Detailing Website Template", description: "A bold automotive website template for detailers, tint shops, ceramic coating specialists, and auto-care businesses.", alternates: { canonical: "/templates/velocity" } };
+
 const services = [
   ["01", "Paint correction", "Remove swirls, haze, and imperfections to restore depth and clarity."],
   ["02", "Ceramic coating", "Long-lasting gloss and easier maintenance with professional surface protection."],
   ["03", "Window tint", "Precision-cut film for privacy, heat rejection, and a cleaner profile."],
   ["04", "Paint protection film", "Nearly invisible defense for high-impact areas and complete vehicles."]
 ];
-
-export const metadata = { title: "Velocity Auto Studio | Premium Detailing", description: "Premium detailing, ceramic coating, tint, and paint protection." };
 
 export default function VelocityTemplate() {
   return <main className="velocity">

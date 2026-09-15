@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "ÉLAN Salon | Modern Beauty", description: "A luxury salon experience for modern hair, color, and beauty." };
+export const metadata = { title: "ÉLAN Salon Website Template", description: "An editorial luxury website template for salons, stylists, colorists, bridal artists, and beauty studios.", alternates: { canonical: "/templates/elan" } };
 
 const services = [
   ["01", "Cut & Finish", "Shape, movement, and a finish designed around the way you live.", "From $85"],

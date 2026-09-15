@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Terms of Service | Oramusa", description: "Terms governing Oramusa website services." };
+export const metadata = { title: "Terms of Service", description: "Terms governing Oramusa website services.", alternates: { canonical: "/terms" } };
 
 export default function TermsPage() {
   return <main className="legalPage">

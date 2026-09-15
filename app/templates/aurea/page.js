@@ -1,5 +1,6 @@
 import Link from "next/link";
-export const metadata={title:"AUREA Realty | Orlando Luxury Real Estate",description:"Distinctive Orlando homes, represented with discretion."};
+
+export const metadata = { title: "AUREA Real Estate Website Template", description: "A cinematic real-estate website template for agents, luxury advisors, and boutique brokerages.", alternates: { canonical: "/templates/aurea" } };
 const properties=[["Lake Nona","$2,850,000","5 beds · 6 baths · 5,420 sq ft"],["Winter Park","$1,975,000","4 beds · 4.5 baths · 3,860 sq ft"],["Windermere","$3,400,000","6 beds · 7 baths · 6,110 sq ft"]];
 export default function AureaTemplate(){return <main className="aurea">
 <header className="aNav"><Link className="aLogo" href="#top">AUREA<span>REALTY</span></Link><nav><a href="#properties">Properties</a><a href="#approach">Approach</a><a href="#markets">Markets</a></nav><a className="aContact" href="/templates#start">Private consultation</a></header>
