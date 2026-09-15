@@ -4,6 +4,7 @@ import "./templates/velocity/velocity.css";
 import "./templates/elan/elan.css";
 import "./templates/aurea/aurea.css";
 import "./templates/evergreen/evergreen.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://www.oramusa.com"),
@@ -36,7 +37,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
