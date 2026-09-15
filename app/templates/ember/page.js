@@ -25,7 +25,7 @@ export default function EmberTemplate() {
     </header>
 
     <section className="eHero" id="top">
-      <img src="/ember-restaurant-hero-v2.jpg" alt="Warm, intimate dining room prepared for evening service"/>
+      <img src="/ember-restaurant-hero-v3.jpg" alt="Warm, intimate dining room prepared for evening service"/>
       <div className="eHeroShade"/>
       <div className="eHeroCopy">
         <p>SEASONAL COOKING · ORLANDO, FLORIDA</p>
@@ -42,7 +42,7 @@ export default function EmberTemplate() {
     </section>
 
     <section className="eFeature">
-      <div className="eFeatureImage"><img src="/ember-restaurant-hero-v2.jpg" alt="Ember restaurant dining room"/></div>
+      <div className="eFeatureImage"><img src="/ember-restaurant-hero-v3.jpg" alt="Ember restaurant dining room"/></div>
       <div><p className="eEyebrow">THE EXPERIENCE</p><h2>Thoughtful by nature.<br/>Relaxed by design.</h2><p>From the first pour to the last course, every detail is considered—never complicated. Come for dinner, stay for another glass.</p><ul><li>Seasonal à la carte menu</li><li>Chef’s counter seating</li><li>Private dining for up to 24</li><li>Curated wine and cocktails</li></ul><a href="/templates#start">Plan your evening →</a></div>
     </section>
 
