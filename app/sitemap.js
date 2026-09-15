@@ -9,6 +9,7 @@ export default function sitemap() {
     { url: `${base}/templates/elan`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/templates/aurea`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/templates/ember`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/service-agreement`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
     { url: `${base}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
   ];
