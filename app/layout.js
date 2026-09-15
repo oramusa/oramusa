@@ -10,11 +10,11 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   metadataBase: new URL("https://www.oramusa.com"),
   title: {
-    default: "Oramusa — Websites, Software & AI for Real Businesses",
+    default: "Affordable Small-Business Websites in Orlando | Oramusa",
     template: "%s | Oramusa",
   },
-  description: "Oramusa builds professional subscription websites, custom software, and practical AI automation for real businesses.",
-  keywords: ["small business websites", "subscription website", "web design Orlando", "custom software", "business automation"],
+  description: "Oramusa builds and manages professional small-business websites in Orlando with $0 upfront and simple monthly pricing.",
+  keywords: ["Orlando web design", "small business website", "monthly website plan", "zero upfront website", "restaurant website design", "landscaping website design"],
   authors: [{ name: "Oramusa", url: "https://www.oramusa.com" }],
   creator: "Oramusa",
   alternates: { canonical: "/" },
@@ -22,15 +22,35 @@ export const metadata = {
     type: "website",
     url: "https://www.oramusa.com",
     siteName: "Oramusa",
-    title: "Oramusa — Built for the real world, not the demo.",
-    description: "Professional websites with $0 upfront, plus custom software and practical AI automation.",
+    title: "Affordable Small-Business Websites in Orlando | Oramusa",
+    description: "Professional small-business websites with $0 upfront, managed hosting, maintenance, and support.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oramusa — Websites, Software & AI",
-    description: "Professional websites with $0 upfront, built and managed for real businesses.",
+    title: "Affordable Small-Business Websites | Oramusa",
+    description: "Professional small-business websites with $0 upfront, hosting, maintenance, and support.",
   },
   robots: { index: true, follow: true },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.oramusa.com/#organization",
+  name: "Oramusa",
+  url: "https://www.oramusa.com",
+  email: "hello@oramusa.com",
+  description: "Orlando-based website design and technology studio serving small businesses.",
+  areaServed: [{ "@type": "City", name: "Orlando" }, { "@type": "Country", name: "United States" }],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.oramusa.com/#website",
+  url: "https://www.oramusa.com",
+  name: "Oramusa",
+  publisher: { "@id": "https://www.oramusa.com/#organization" },
 };
 
 export const viewport = { width: "device-width", initialScale: 1, themeColor: "#171715" };
@@ -38,7 +58,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}<Analytics /></body>
+      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/><Analytics /></body>
     </html>
   );
 }

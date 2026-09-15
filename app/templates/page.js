@@ -11,6 +11,17 @@ const templates = [
   { number:"05 / 05", type:"RESTAURANT & HOSPITALITY", name:"EMBER", image:"/ember-neighborhood-hero.jpg", alt:"Burger, tacos, salad, and drinks at a lively neighborhood restaurant", copy:"A bright, friendly design for neighborhood restaurants, cafés, grills, pizza shops, and family dining.", items:["Order-online and reservation buttons","Food menu with clear pricing","Hours, phone, and directions","Mobile-first local restaurant design","Hosting, security, and updates"], href:"/templates/ember", visual:"emberPreview", tag:"emberTag", button:"emberButton" },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "Is the website really $0 upfront?", acceptedAnswer: { "@type": "Answer", text: "Yes. There is no website setup fee. The $99 monthly subscription begins after the project scope is approved and before the website goes live." } },
+    { "@type": "Question", name: "How quickly can my website launch?", acceptedAnswer: { "@type": "Answer", text: "Most websites can launch within 7–10 business days after Oramusa receives the logo, photos, services, and business information." } },
+    { "@type": "Question", name: "What updates are included?", acceptedAnswer: { "@type": "Answer", text: "The plan includes one grouped routine update request per calendar month requiring up to 30 minutes of work. Unused time does not roll over." } },
+    { "@type": "Question", name: "Do I own my domain and content?", acceptedAnswer: { "@type": "Answer", text: "Yes. Customers own their domain, logo, photos, and original business content. Oramusa manages the template, code, hosting, and website technology while the subscription is active." } }
+  ]
+};
+
 export default function TemplatesPage() {
   const [status, setStatus] = useState("idle");
   const [selectedTemplate, setSelectedTemplate] = useState("");
@@ -24,7 +35,7 @@ export default function TemplatesPage() {
       form.reset(); setStatus("success");
     } catch { setStatus("error"); }
   }
-  return <main className="templatesPage">
+  return <main className="templatesPage"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}/>
     <header className="nav shell templatesNav"><Link className="brand" href="/"><span>Oram</span><em>usa</em></Link><nav className="navLinks"><Link href="/">Home</Link><a href="#templates">Templates</a><a href="#pricing">Pricing</a><a href="#how">How it works</a></nav><MobileMenu/><a className="navCta" href="#start">Start my website</a></header>
     <section className="templateHero"><div className="shell"><p className="kicker">ORAMUSA WEBSITE COLLECTION</p><h1>Choose your website.<br/><span>We make it yours.</span></h1><p>Professional websites for local businesses—with no large upfront bill. Pick a design, send us your details, and we handle the rest.</p><div className="pricePill"><strong>$0</strong><span>upfront</span><i/><strong>$99</strong><span>/ month</span></div></div></section>
     <section className="templateCatalog shell" id="templates"><div className="catalogHeading"><div><p className="kicker darkKicker">TEMPLATES 01–05</p><h2>Built to turn visitors<br/>into local customers.</h2></div><p>Choose a polished design for your industry. We customize the colors, content, services, photos, and contact details for your business.</p></div>
