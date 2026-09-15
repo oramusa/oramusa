@@ -4,6 +4,7 @@ import "./templates/velocity/velocity.css";
 import "./templates/elan/elan.css";
 import "./templates/aurea/aurea.css";
 import "./templates/evergreen/evergreen.css";
+import "./onboarding/onboarding.css";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
