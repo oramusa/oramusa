@@ -18,11 +18,12 @@ const favorites = [
 
 export default function EmberTemplate() {
   return <main className="ember">
+    <div className="eDemoBar"><Link href="/templates">← Back to Oramusa templates</Link><Link className="eChooseTemplate" href="/templates?template=EMBER#start">Choose EMBER — $99/month</Link></div>
     <div className="eTopbar"><span>Open today 11 AM–10 PM</span><a href="tel:+14075550188">Call (407) 555-0188</a></div>
     <header className="eNav">
       <Link className="eLogo" href="#top"><b>EMBER</b><span>NEIGHBORHOOD KITCHEN</span></Link>
       <nav><a href="#menu">Menu</a><a href="#about">About</a><a href="#visit">Hours & Location</a></nav>
-      <div className="eNavActions"><a className="eOrder" href="/templates#start">Order online</a><a className="eReserve" href="#reserve">Reserve</a></div>
+      <div className="eNavActions"><a className="eOrder" href="/templates?template=EMBER#start">Order online</a><a className="eReserve" href="#reserve">Reserve</a></div>
     </header>
 
     <section className="eHero" id="top">
@@ -32,12 +33,12 @@ export default function EmberTemplate() {
         <span>GOOD FOOD · GOOD PEOPLE · GOOD TIMES</span>
         <h1>Your neighborhood<br/>table is ready.</h1>
         <p>Burgers, tacos, fresh bowls, and family favorites—made from scratch and served with a smile.</p>
-        <div><a className="ePrimary" href="/templates#start">Order online</a><a className="eSecondary" href="#menu">View our menu</a></div>
+        <div><a className="ePrimary" href="/templates?template=EMBER#start">Order online</a><a className="eSecondary" href="#menu">View our menu</a></div>
       </div>
     </section>
 
     <section className="eQuick">
-      <a href="/templates#start"><b>🛍️</b><span><strong>Order Online</strong><small>Pickup made easy</small></span></a>
+      <a href="/templates?template=EMBER#start"><b>🛍️</b><span><strong>Order Online</strong><small>Pickup made easy</small></span></a>
       <a href="#menu"><b>🍔</b><span><strong>View Menu</strong><small>See what’s cooking</small></span></a>
       <a href="tel:+14075550188"><b>☎</b><span><strong>Call Us</strong><small>(407) 555-0188</small></span></a>
       <a href="#visit"><b>⌖</b><span><strong>Directions</strong><small>Winter Park, FL</small></span></a>
@@ -51,7 +52,7 @@ export default function EmberTemplate() {
     <section className="eMenu" id="menu">
       <div className="eMenuHead"><div><p className="eEyebrow">CUSTOMER FAVORITES</p><h2>Something for everyone.</h2></div><p>Big flavor, familiar favorites, and honest prices. Dine in, take out, or order online.</p></div>
       <div className="eMenuGrid">{favorites.map(([name,details,price]) => <article key={name}><div><h3>{name}</h3><strong>{price}</strong></div><p>{details}</p></article>)}</div>
-      <div className="eMenuActions"><a className="ePrimary" href="/templates#start">View full menu</a><a className="eTextLink" href="/templates#start">Start an online order →</a></div>
+      <div className="eMenuActions"><a className="ePrimary" href="/templates?template=EMBER#start">View full menu</a><a className="eTextLink" href="/templates?template=EMBER#start">Start an online order →</a></div>
     </section>
 
     <section className="ePromo"><div><span>WEEKDAY SPECIAL</span><h2>Lunch made easy.</h2><p>Choose any burger, sandwich, or bowl with a fountain drink for $14. Monday–Friday, 11 AM–3 PM.</p><a href="#menu">See lunch favorites →</a></div></section>
@@ -68,10 +69,10 @@ export default function EmberTemplate() {
     </section>
 
     <section className="eVisit" id="visit">
-      <div><p className="eEyebrow">COME SEE US</p><h2>Lunch, dinner,<br/>and everything between.</h2><div className="eVisitButtons"><a className="ePrimary" href="/templates#start">Get directions</a><a href="tel:+14075550188">Call restaurant</a></div></div>
+      <div><p className="eEyebrow">COME SEE US</p><h2>Lunch, dinner,<br/>and everything between.</h2><div className="eVisitButtons"><a className="ePrimary" href="/templates?template=EMBER#start">Get directions</a><a href="tel:+14075550188">Call restaurant</a></div></div>
       <div className="eVisitCard"><article><span>ADDRESS</span><p>128 E. New England Avenue<br/>Winter Park, FL 32789</p></article><article><span>HOURS</span><p>Monday–Thursday · 11 AM–10 PM<br/>Friday–Saturday · 11 AM–11 PM<br/>Sunday · 11 AM–9 PM</p></article><article><span>CONTACT</span><p>(407) 555-0188<br/>hello@emberkitchen.com</p></article></div>
     </section>
 
-    <footer className="eFooter"><Link className="eLogo" href="#top"><b>EMBER</b><span>NEIGHBORHOOD KITCHEN</span></Link><p>Good food. Good people. Right around the corner.</p><div><a href="#menu">Menu</a><a href="/templates#start">Order Online</a><a href="#reserve">Reservations</a></div><small>© 2026 Ember Neighborhood Kitchen · Website template by Oramusa</small></footer>
+    <footer className="eFooter"><Link className="eLogo" href="#top"><b>EMBER</b><span>NEIGHBORHOOD KITCHEN</span></Link><p>Good food. Good people. Right around the corner.</p><div><a href="#menu">Menu</a><a href="/templates?template=EMBER#start">Order Online</a><a href="#reserve">Reservations</a></div><small>© 2026 Ember Neighborhood Kitchen · Website template by Oramusa</small></footer>
   </main>;
 }
