@@ -6,80 +6,24 @@ const products = [
   { name: "UWAYS", eyebrow: "GLOBAL DRIVER NETWORK", description: "Connects professional drivers, fleets, and affiliates worldwide to find backup support, assign rides, and coordinate trips in real time.", href: "https://uways.com", badge: "Live" },
   { name: "AppraisalIQ", eyebrow: "APPRAISAL INTELLIGENCE", description: "AI-assisted analysis for FNMA 1004 appraisal reports, risk review, and Fair Housing language checks.", href: "#", badge: "In development" }
 ];
-
-const services = [
-  ["Websites", "$0-upfront professional websites with hosting, maintenance, and support.", "/templates"],
-  ["Custom Software", "Purpose-built web applications for businesses with specific operational needs."],
-  ["AI & Automation", "Practical automations and AI integrations that save time and reduce manual work."],
-  ["Ongoing Support", "Long-term technology support after launch, not just a handoff."]
-];
-
+const services = [["Websites", "$0-upfront professional websites with hosting, maintenance, and support.", "/templates"],["Custom Software", "Purpose-built web applications for businesses with specific operational needs."],["AI & Automation", "Practical automations and AI integrations that save time and reduce manual work."],["Ongoing Support", "Long-term technology support after launch, not just a handoff."]];
 const templatePreview = [
-  ["Evergreen", "HOME SERVICES", "A clean, trustworthy website for local service businesses."],
-  ["Velocity", "AUTO & DETAILING", "A sharper, high-energy layout built to turn local traffic into leads."],
-  ["EMBER", "RESTAURANTS", "A warm, food-forward website for restaurants, cafés, grills, and neighborhood kitchens."]
+  { name:"Evergreen", type:"HOME SERVICES", desc:"A clean, trustworthy website for local service businesses.", image:"/aurea-realty-hero.jpg", href:"/templates/evergreen" },
+  { name:"Velocity", type:"AUTO & DETAILING", desc:"A sharper, high-energy layout built to turn local traffic into leads.", image:"/velocity-hero.jpg", href:"/templates/velocity" },
+  { name:"EMBER", type:"RESTAURANTS", desc:"A warm, food-forward website for restaurants, cafés, grills, and neighborhood kitchens.", image:"/ember-restaurant-hero-v3.jpg", href:"/templates/ember" }
 ];
-
-function scrollToSection(e, id) { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); }
-
-export default function Home() {
-  return (
-    <main>
-      <style jsx global>{`
-        .serviceGrid { grid-template-columns: 1.15fr 1fr 1fr 1fr; }
-        .serviceItem { min-width: 0; padding-bottom: 46px; }
-        .serviceItem:first-child { padding-left: 28px; padding-right: 38px; }
-        .serviceItem p { max-width: 280px; }
-        .serviceItem > a { margin-top: 28px; white-space: nowrap; }
-        .templateSpotlight { padding: 92px 0 100px; background: #f5f1e8; }
-        .templateSpotlightHead { display:flex; justify-content:space-between; align-items:end; gap:40px; margin-bottom:34px; }
-        .templateSpotlightHead h2 { font:700 50px/1.03 Georgia,serif; letter-spacing:-2px; margin:0; }
-        .templateSpotlightHead > a { font-weight:700; white-space:nowrap; border-bottom:1px solid #111110; padding-bottom:5px; }
-        .templatePreviewGrid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-        .templatePreviewCard { min-height:250px; padding:28px; border:1px solid #d9d3c8; border-radius:16px; background:#fbf9f4; display:flex; flex-direction:column; transition:.2s ease; }
-        .templatePreviewCard:hover { transform:translateY(-3px); box-shadow:0 14px 34px rgba(17,17,16,.08); }
-        .templatePreviewCard span { font-size:11px; letter-spacing:2px; color:#817b70; }
-        .templatePreviewCard h3 { font:700 38px Georgia,serif; margin:52px 0 12px; }
-        .templatePreviewCard p { color:#6c675f; line-height:1.6; margin:0; }
-        .templatePreviewCard b { margin-top:auto; padding-top:24px; color:#9b7427; }
-        .heroTemplateCta { border-color:#d9b15b; color:#f0cb73; }
-        @media (max-width: 900px) {
-          .serviceGrid { grid-template-columns: 1fr 1fr; }
-          .serviceItem:first-child { padding-left: 28px; padding-right: 32px; }
-          .templatePreviewGrid { grid-template-columns:1fr; }
-          .templateSpotlightHead { align-items:flex-start; flex-direction:column; }
-        }
-        @media (max-width: 560px) {
-          .serviceGrid { grid-template-columns: 1fr; }
-          .serviceItem, .serviceItem:first-child { padding: 32px 24px 42px !important; }
-          .serviceItem p { max-width: 100%; }
-          .templateSpotlight { padding:70px 0 76px; }
-          .templateSpotlightHead h2 { font-size:42px; }
-        }
-      `}</style>
-      <header className="nav shell">
-        <a className="brand" href="#top" aria-label="Oramusa home" onClick={(e) => scrollToSection(e, "top")}><span>Oram</span><em>usa</em></a>
-        <nav className="navLinks">
-          <a href="#products" onClick={(e) => scrollToSection(e, "products")}>Products</a><a href="#services" onClick={(e) => scrollToSection(e, "services")}>Services</a><a href="/templates">Templates</a><a href="#about" onClick={(e) => scrollToSection(e, "about")}>About</a><a href="#roadmap" onClick={(e) => scrollToSection(e, "roadmap")}>Roadmap</a>
-        </nav>
-        <MobileMenu /><a className="navCta" href="mailto:hello@oramusa.com">Get in touch</a>
-      </header>
-
-      <section className="hero" id="top"><div className="shell heroGrid"><div className="heroCopy">
-        <p className="kicker">ORAMUSA · SOFTWARE STUDIO</p><h1>Built for the <span>real world,</span><br />not the demo.</h1>
-        <p className="lead">We build focused software for real businesses — solving problems that are overlooked, inefficient, and genuinely painful to work around every day.</p>
-        <div className="actions"><a className="primary" href="#products" onClick={(e) => scrollToSection(e, "products")}>See our products <b>→</b></a><a className="secondary heroTemplateCta" href="/templates">Browse website templates →</a></div>
-      </div><div className="heroArt" aria-hidden="true"><div className="goldLine"></div><div className="artWords"><span>IDEAS</span><span>SOFTWARE</span><span>REAL IMPACT</span></div><div className="device"><div className="deviceScreen"><span>ORAMUSA</span><strong>Build what<br/>matters.</strong></div></div></div></div></section>
-
-      <section className="templateSpotlight"><div className="shell"><div className="templateSpotlightHead"><div><p className="kicker darkKicker">WEBSITES · $0 UPFRONT</p><h2>Choose a starting point.<br/>We make it yours.</h2></div><a href="/templates">View all templates →</a></div><div className="templatePreviewGrid">{templatePreview.map(([name,type,desc]) => <a className="templatePreviewCard" href="/templates" key={name}><span>{type}</span><h3>{name}</h3><p>{desc}</p><b>See template →</b></a>)}</div></div></section>
-
-      <section className="products shell" id="products"><div className="sectionHeading"><div><p className="kicker darkKicker">OUR PRODUCTS</p><h2>Real tools for real businesses.</h2></div><p>Focused products built around operational problems, not trends.</p></div><div className="productGrid">{products.map((product,i)=><article className={`productCard ${i===0?"featured":""}`} key={product.name}><div className="cardTop"><span className="productEyebrow">{product.eyebrow}</span><span className="badge">{product.badge}</span></div><h3>{product.name}</h3><p>{product.description}</p><a href={product.href} target={product.href.startsWith("http")?"_blank":undefined}>Explore product <span>→</span></a></article>)}<article className="productCard coming"><div className="plus">+</div><h3>More to come.</h3><p>New tools for overlooked business problems.</p></article></div></section>
-
-      <section className="services" id="services"><div className="shell"><div className="sectionHeading inverse"><div><p className="kicker">SERVICES</p><h2>More than products.</h2></div><p>Oramusa also helps businesses build and improve the technology they rely on.</p></div><div className="serviceGrid">{services.map(([title,desc,href],i)=><div className={`serviceItem ${href?"linkedService":""}`} key={title}><span>0{i+1}</span><h3>{title}</h3><p>{desc}</p>{href&&<a href={href}>Browse templates →</a>}</div>)}</div></div></section>
-
-      <section className="about shell" id="about"><div className="aboutLabel"><p className="kicker darkKicker">ABOUT ORAMUSA</p></div><div className="aboutText"><h2>Technology should remove friction, not create more of it.</h2><p>Oramusa is an independent software studio building practical digital products and business systems. We care about simple interfaces, useful automation, and software that earns its place in everyday work.</p></div></section>
-      <section className="roadmap" id="roadmap"><div className="shell roadmapInner"><p className="kicker">WHAT'S NEXT</p><h2>Websites. Software. AI.<br/><span>One studio.</span></h2><p>We are building Oramusa into a long-term technology partner for businesses — from subscription websites to custom applications and intelligent automation.</p><a className="primary lightBtn" href="mailto:hello@oramusa.com">Start a conversation →</a></div></section>
-      <footer className="footer shell"><a className="brand footerBrand" href="#top" onClick={(e)=>scrollToSection(e,"top")}><span>Oram</span><em>usa</em></a><p>Built for the real world.</p><div><a href="mailto:hello@oramusa.com">hello@oramusa.com</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><span>© {new Date().getFullYear()} Oramusa</span></div></footer>
-    </main>
-  );
-}
+function scrollToSection(e,id){e.preventDefault();document.getElementById(id)?.scrollIntoView({behavior:"smooth"});}
+export default function Home(){return <main>
+<style jsx global>{`
+.serviceGrid{grid-template-columns:1.15fr 1fr 1fr 1fr}.serviceItem{min-width:0;padding-bottom:46px}.serviceItem:first-child{padding-left:28px;padding-right:38px}.serviceItem p{max-width:280px}.serviceItem>a{margin-top:28px;white-space:nowrap}
+.templateSpotlight{padding:92px 0 100px;background:#f5f1e8}.templateSpotlightHead{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:34px}.templateSpotlightHead h2{font:700 50px/1.03 Georgia,serif;letter-spacing:-2px;margin:0}.templateSpotlightHead>a{font-weight:700;white-space:nowrap;border-bottom:1px solid #111110;padding-bottom:5px}.templatePreviewGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.templatePreviewCard{position:relative;isolation:isolate;overflow:hidden;min-height:296px;padding:28px;border:1px solid #d9d3c8;border-radius:16px;display:flex;flex-direction:column;transition:.2s ease;background:#e9e3d8}.templatePreviewCard::before{content:"";position:absolute;z-index:-2;inset:-12px;background-image:var(--template-image);background-size:cover;background-position:center;filter:blur(3px);transform:scale(1.05)}.templatePreviewCard::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(250,248,242,.40) 0%,rgba(250,248,242,.64) 47%,rgba(250,248,242,.96) 100%)}.templatePreviewCard:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(17,17,16,.12)}.templatePreviewCard:hover::before{filter:blur(1.5px)}.templatePreviewCard span{font-size:11px;letter-spacing:2px;color:#5f5a51;font-weight:700}.templatePreviewCard h3{font:700 38px Georgia,serif;margin:68px 0 12px;color:#111110}.templatePreviewCard p{color:#4f4b44;line-height:1.6;margin:0;max-width:330px}.templatePreviewCard b{margin-top:auto;padding-top:24px;color:#9b7427}.heroTemplateCta{border-color:#d9b15b;color:#f0cb73}
+@media(max-width:900px){.serviceGrid{grid-template-columns:1fr 1fr}.serviceItem:first-child{padding-left:28px;padding-right:32px}.templatePreviewGrid{grid-template-columns:1fr}.templateSpotlightHead{align-items:flex-start;flex-direction:column}.templatePreviewCard{min-height:270px}}
+@media(max-width:560px){.serviceGrid{grid-template-columns:1fr}.serviceItem,.serviceItem:first-child{padding:32px 24px 42px!important}.serviceItem p{max-width:100%}.templateSpotlight{padding:70px 0 76px}.templateSpotlightHead h2{font-size:42px}.templatePreviewCard{padding:24px;min-height:270px}.templatePreviewCard h3{margin-top:62px}}
+`}</style>
+<header className="nav shell"><a className="brand" href="#top" aria-label="Oramusa home" onClick={e=>scrollToSection(e,"top")}><span>Oram</span><em>usa</em></a><nav className="navLinks"><a href="#products" onClick={e=>scrollToSection(e,"products")}>Products</a><a href="#services" onClick={e=>scrollToSection(e,"services")}>Services</a><a href="/templates">Templates</a><a href="#about" onClick={e=>scrollToSection(e,"about")}>About</a><a href="#roadmap" onClick={e=>scrollToSection(e,"roadmap")}>Roadmap</a></nav><MobileMenu/><a className="navCta" href="mailto:hello@oramusa.com">Get in touch</a></header>
+<section className="hero" id="top"><div className="shell heroGrid"><div className="heroCopy"><p className="kicker">ORAMUSA · SOFTWARE STUDIO</p><h1>Built for the <span>real world,</span><br/>not the demo.</h1><p className="lead">We build focused software for real businesses — solving problems that are overlooked, inefficient, and genuinely painful to work around every day.</p><div className="actions"><a className="primary" href="#products" onClick={e=>scrollToSection(e,"products")}>See our products <b>→</b></a><a className="secondary heroTemplateCta" href="/templates">Browse website templates →</a></div></div><div className="heroArt" aria-hidden="true"><div className="goldLine"></div><div className="artWords"><span>IDEAS</span><span>SOFTWARE</span><span>REAL IMPACT</span></div><div className="device"><div className="deviceScreen"><span>ORAMUSA</span><strong>Build what<br/>matters.</strong></div></div></div></div></section>
+<section className="templateSpotlight"><div className="shell"><div className="templateSpotlightHead"><div><p className="kicker darkKicker">WEBSITES · $0 UPFRONT</p><h2>Choose a starting point.<br/>We make it yours.</h2></div><a href="/templates">View all templates →</a></div><div className="templatePreviewGrid">{templatePreview.map(t=><a className="templatePreviewCard" href={t.href} style={{"--template-image":`url(${t.image})`}} key={t.name}><span>{t.type}</span><h3>{t.name}</h3><p>{t.desc}</p><b>See template →</b></a>)}</div></div></section>
+<section className="products shell" id="products"><div className="sectionHeading"><div><p className="kicker darkKicker">OUR PRODUCTS</p><h2>Real tools for real businesses.</h2></div><p>Focused products built around operational problems, not trends.</p></div><div className="productGrid">{products.map((p,i)=><article className={`productCard ${i===0?"featured":""}`} key={p.name}><div className="cardTop"><span className="productEyebrow">{p.eyebrow}</span><span className="badge">{p.badge}</span></div><h3>{p.name}</h3><p>{p.description}</p><a href={p.href} target={p.href.startsWith("http")?"_blank":undefined}>Explore product <span>→</span></a></article>)}<article className="productCard coming"><div className="plus">+</div><h3>More to come.</h3><p>New tools for overlooked business problems.</p></article></div></section>
+<section className="services" id="services"><div className="shell"><div className="sectionHeading inverse"><div><p className="kicker">SERVICES</p><h2>More than products.</h2></div><p>Oramusa also helps businesses build and improve the technology they rely on.</p></div><div className="serviceGrid">{services.map(([title,desc,href],i)=><div className={`serviceItem ${href?"linkedService":""}`} key={title}><span>0{i+1}</span><h3>{title}</h3><p>{desc}</p>{href&&<a href={href}>Browse templates →</a>}</div>)}</div></div></section>
+<section className="about shell" id="about"><div className="aboutLabel"><p className="kicker darkKicker">ABOUT ORAMUSA</p></div><div className="aboutText"><h2>Technology should remove friction, not create more of it.</h2><p>Oramusa is an independent software studio building practical digital products and business systems. We care about simple interfaces, useful automation, and software that earns its place in everyday work.</p></div></section><section className="roadmap" id="roadmap"><div className="shell roadmapInner"><p className="kicker">WHAT'S NEXT</p><h2>Websites. Software. AI.<br/><span>One studio.</span></h2><p>We are building Oramusa into a long-term technology partner for businesses — from subscription websites to custom applications and intelligent automation.</p><a className="primary lightBtn" href="mailto:hello@oramusa.com">Start a conversation →</a></div></section><footer className="footer shell"><a className="brand footerBrand" href="#top" onClick={e=>scrollToSection(e,"top")}><span>Oram</span><em>usa</em></a><p>Built for the real world.</p><div><a href="mailto:hello@oramusa.com">hello@oramusa.com</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><span>© {new Date().getFullYear()} Oramusa</span></div></footer>
+</main>}
