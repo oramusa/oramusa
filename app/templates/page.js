@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "../MobileMenu";
 
 const templates = [
@@ -25,6 +25,10 @@ const faqSchema = {
 export default function TemplatesPage() {
   const [status, setStatus] = useState("idle");
   const [selectedTemplate, setSelectedTemplate] = useState("");
+  useEffect(() => {
+    const requestedTemplate = new URLSearchParams(window.location.search).get("template");
+    if (templates.some((template) => template.name === requestedTemplate)) setSelectedTemplate(requestedTemplate);
+  }, []);
   async function submitInterest(event) {
     event.preventDefault(); setStatus("sending");
     const form = event.currentTarget;
