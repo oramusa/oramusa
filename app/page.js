@@ -40,6 +40,22 @@ function scrollToSection(e, id) {
 export default function Home() {
   return (
     <main>
+      <style jsx global>{`
+        .serviceGrid { grid-template-columns: 1.15fr 1fr 1fr 1fr; }
+        .serviceItem { min-width: 0; padding-bottom: 46px; }
+        .serviceItem:first-child { padding-left: 28px; padding-right: 38px; }
+        .serviceItem p { max-width: 280px; }
+        .serviceItem > a { margin-top: 28px; white-space: nowrap; }
+        @media (max-width: 900px) {
+          .serviceGrid { grid-template-columns: 1fr 1fr; }
+          .serviceItem:first-child { padding-left: 28px; padding-right: 32px; }
+        }
+        @media (max-width: 560px) {
+          .serviceGrid { grid-template-columns: 1fr; }
+          .serviceItem, .serviceItem:first-child { padding: 32px 24px 42px !important; }
+          .serviceItem p { max-width: 100%; }
+        }
+      `}</style>
       <header className="nav shell">
         <a className="brand" href="#top" aria-label="Oramusa home" onClick={(e) => scrollToSection(e, "top")}>
           <span>Oram</span><em>usa</em>
@@ -72,67 +88,41 @@ export default function Home() {
           <div className="heroArt" aria-hidden="true">
             <div className="goldLine"></div>
             <div className="artWords">
-              <span>IDEAS</span>
-              <span>SOFTWARE</span>
-              <span>REAL IMPACT</span>
+              <span>IDEAS</span><span>SOFTWARE</span><span>REAL IMPACT</span>
             </div>
-            <div className="device">
-              <div className="deviceScreen">
-                <span>ORAMUSA</span>
-                <strong>Build what<br/>matters.</strong>
-              </div>
-            </div>
+            <div className="device"><div className="deviceScreen"><span>ORAMUSA</span><strong>Build what<br/>matters.</strong></div></div>
           </div>
         </div>
       </section>
 
       <section className="products shell" id="products">
         <div className="sectionHeading">
-          <div>
-            <p className="kicker darkKicker">OUR PRODUCTS</p>
-            <h2>Real tools for real businesses.</h2>
-          </div>
+          <div><p className="kicker darkKicker">OUR PRODUCTS</p><h2>Real tools for real businesses.</h2></div>
           <p>Focused products built around operational problems, not trends.</p>
         </div>
-
         <div className="productGrid">
           {products.map((product, i) => (
             <article className={`productCard ${i === 0 ? "featured" : ""}`} key={product.name}>
-              <div className="cardTop">
-                <span className="productEyebrow">{product.eyebrow}</span>
-                <span className="badge">{product.badge}</span>
-              </div>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-              <a href={product.href} target={product.href.startsWith("http") ? "_blank" : undefined}>
-                Explore product <span>→</span>
-              </a>
+              <div className="cardTop"><span className="productEyebrow">{product.eyebrow}</span><span className="badge">{product.badge}</span></div>
+              <h3>{product.name}</h3><p>{product.description}</p>
+              <a href={product.href} target={product.href.startsWith("http") ? "_blank" : undefined}>Explore product <span>→</span></a>
             </article>
           ))}
-          <article className="productCard coming">
-            <div className="plus">+</div>
-            <h3>More to come.</h3>
-            <p>New tools for overlooked business problems.</p>
-          </article>
+          <article className="productCard coming"><div className="plus">+</div><h3>More to come.</h3><p>New tools for overlooked business problems.</p></article>
         </div>
       </section>
 
       <section className="services" id="services">
         <div className="shell">
           <div className="sectionHeading inverse">
-            <div>
-              <p className="kicker">SERVICES</p>
-              <h2>More than products.</h2>
-            </div>
+            <div><p className="kicker">SERVICES</p><h2>More than products.</h2></div>
             <p>Oramusa also helps businesses build and improve the technology they rely on.</p>
           </div>
           <div className="serviceGrid">
             {services.map(([title, desc, href], i) => (
-              <div className={`serviceItem ${href ? "linkedService" : ""}`} style={{ paddingBottom: "40px", display: "flex", flexDirection: "column" }} key={title}>
-                <span>0{i + 1}</span>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-                {href && <a href={href} style={{ marginTop: "auto", paddingTop: "24px" }}>Browse templates →</a>}
+              <div className={`serviceItem ${href ? "linkedService" : ""}`} key={title}>
+                <span>0{i + 1}</span><h3>{title}</h3><p>{desc}</p>
+                {href && <a href={href}>Browse templates →</a>}
               </div>
             ))}
           </div>
@@ -140,40 +130,18 @@ export default function Home() {
       </section>
 
       <section className="about shell" id="about">
-        <div className="aboutLabel">
-          <p className="kicker darkKicker">ABOUT ORAMUSA</p>
-        </div>
-        <div className="aboutText">
-          <h2>Technology should remove friction, not create more of it.</h2>
-          <p>
-            Oramusa is an independent software studio building practical digital products and
-            business systems. We care about simple interfaces, useful automation, and software
-            that earns its place in everyday work.
-          </p>
-        </div>
+        <div className="aboutLabel"><p className="kicker darkKicker">ABOUT ORAMUSA</p></div>
+        <div className="aboutText"><h2>Technology should remove friction, not create more of it.</h2><p>Oramusa is an independent software studio building practical digital products and business systems. We care about simple interfaces, useful automation, and software that earns its place in everyday work.</p></div>
       </section>
 
       <section className="roadmap" id="roadmap">
-        <div className="shell roadmapInner">
-          <p className="kicker">WHAT'S NEXT</p>
-          <h2>Websites. Software. AI.<br/><span>One studio.</span></h2>
-          <p>
-            We are building Oramusa into a long-term technology partner for businesses — from
-            subscription websites to custom applications and intelligent automation.
-          </p>
-          <a className="primary lightBtn" href="mailto:hello@oramusa.com">Start a conversation →</a>
-        </div>
+        <div className="shell roadmapInner"><p className="kicker">WHAT'S NEXT</p><h2>Websites. Software. AI.<br/><span>One studio.</span></h2><p>We are building Oramusa into a long-term technology partner for businesses — from subscription websites to custom applications and intelligent automation.</p><a className="primary lightBtn" href="mailto:hello@oramusa.com">Start a conversation →</a></div>
       </section>
 
       <footer className="footer shell">
         <a className="brand footerBrand" href="#top" onClick={(e) => scrollToSection(e, "top")}><span>Oram</span><em>usa</em></a>
         <p>Built for the real world.</p>
-        <div>
-          <a href="mailto:hello@oramusa.com">hello@oramusa.com</a>
-          <a href="/terms">Terms</a>
-          <a href="/privacy">Privacy</a>
-          <span>© {new Date().getFullYear()} Oramusa</span>
-        </div>
+        <div><a href="mailto:hello@oramusa.com">hello@oramusa.com</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><span>© {new Date().getFullYear()} Oramusa</span></div>
       </footer>
     </main>
   );
