@@ -128,11 +128,11 @@ export default function Home() {
           </div>
           <div className="serviceGrid">
             {services.map(([title, desc, href], i) => (
-              <div className={`serviceItem ${href ? "linkedService" : ""}`} style={{ paddingBottom: "40px" }} key={title}>
+              <div className={`serviceItem ${href ? "linkedService" : ""}`} style={{ paddingBottom: "40px", display: "flex", flexDirection: "column" }} key={title}>
                 <span>0{i + 1}</span>
                 <h3>{title}</h3>
                 <p>{desc}</p>
-                {href && <a href={href}>Browse templates →</a>}
+                {href && <a href={href} style={{ marginTop: "auto", paddingTop: "24px" }}>Browse templates →</a>}
               </div>
             ))}
           </div>
