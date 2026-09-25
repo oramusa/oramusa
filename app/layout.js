@@ -5,7 +5,7 @@ import "./templates/elan/elan.css";
 import "./templates/aurea/aurea.css";
 import "./templates/evergreen/evergreen.css";
 import "./onboarding/onboarding.css";
-import { Analytics } from "@vercel/analytics/next";
+import SiteAnalytics from "./site-analytics";
 
 export const metadata = {
   metadataBase: new URL("https://www.oramusa.com"),
@@ -58,7 +58,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/><Analytics /></body>
+      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/><SiteAnalytics /></body>
     </html>
   );
 }
