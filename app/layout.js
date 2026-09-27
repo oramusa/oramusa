@@ -10,11 +10,11 @@ import SiteAnalytics from "./site-analytics";
 export const metadata = {
   metadataBase: new URL("https://www.oramusa.com"),
   title: {
-    default: "Affordable Small-Business Websites in Orlando | Oramusa",
+    default: "Affordable Small-Business Websites | Oramusa",
     template: "%s | Oramusa",
   },
-  description: "Oramusa builds and manages professional small-business websites in Orlando with $0 upfront and simple monthly pricing.",
-  keywords: ["Orlando web design", "small business website", "monthly website plan", "zero upfront website", "restaurant website design", "landscaping website design"],
+  description: "Oramusa builds and manages professional small-business websites with $0 upfront and simple monthly pricing.",
+  keywords: ["small business website", "monthly website plan", "zero upfront website", "restaurant website design", "landscaping website design"],
   authors: [{ name: "Oramusa", url: "https://www.oramusa.com" }],
   creator: "Oramusa",
   alternates: { canonical: "/" },
@@ -22,7 +22,7 @@ export const metadata = {
     type: "website",
     url: "https://www.oramusa.com",
     siteName: "Oramusa",
-    title: "Affordable Small-Business Websites in Orlando | Oramusa",
+    title: "Affordable Small-Business Websites | Oramusa",
     description: "Professional small-business websites with $0 upfront, managed hosting, maintenance, and support.",
   },
   twitter: {
@@ -40,8 +40,8 @@ const organizationSchema = {
   name: "Oramusa",
   url: "https://www.oramusa.com",
   email: "hello@oramusa.com",
-  description: "Orlando-based website design and technology studio serving small businesses.",
-  areaServed: [{ "@type": "City", name: "Orlando" }, { "@type": "Country", name: "United States" }],
+  description: "Website design and technology studio serving small businesses.",
+  areaServed: [{ "@type": "Country", name: "United States" }],
 };
 
 const websiteSchema = {
