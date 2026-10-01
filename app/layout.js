@@ -6,6 +6,7 @@ import "./templates/aurea/aurea.css";
 import "./templates/evergreen/evergreen.css";
 import "./onboarding/onboarding.css";
 import SiteAnalytics from "./site-analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   metadataBase: new URL("https://www.oramusa.com"),
@@ -57,7 +58,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/><SiteAnalytics /></body>
+      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}/><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}/><SiteAnalytics /><SpeedInsights /></body>
     </html>
   );
 }
