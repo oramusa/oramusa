@@ -17,7 +17,6 @@ export const metadata = {
   keywords: ["small business website", "monthly website plan", "zero upfront website", "restaurant website design", "landscaping website design"],
   authors: [{ name: "Oramusa", url: "https://www.oramusa.com" }],
   creator: "Oramusa",
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "https://www.oramusa.com",
