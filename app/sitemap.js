@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const lastModified = new Date("2026-09-15");
+  const lastModified = new Date("2026-10-01");
   const base = "https://www.oramusa.com";
   return [
     { url: base, lastModified, changeFrequency: "monthly", priority: 1 },
