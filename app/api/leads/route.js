@@ -13,7 +13,10 @@ export async function POST(request) {
   const body = await request.json().catch(() => null);
   if (!body || body.website) return NextResponse.json({ ok: true });
   const required = ["template", "business", "industry", "name", "email", "phone"];
+  const allowedTemplates = new Set(["Evergreen", "Velocity", "ÉLAN", "AUREA", "EMBER"]);
   if (required.some((field) => !clean(body[field], 120))) return NextResponse.json({ error: "Please complete all required fields" }, { status: 400 });
+  if (!allowedTemplates.has(clean(body.template, 50))) return NextResponse.json({ error: "Please choose a valid template" }, { status: 400 });
+  if (clean(body.phone, 40).replace(/\D/g, "").length < 10) return NextResponse.json({ error: "Please enter a valid phone number" }, { status: 400 });
   if (body.agreementAccepted !== "yes") return NextResponse.json({ error: "Please accept the Website Service Agreement and Terms of Service" }, { status: 400 });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(body.email, 160))) return NextResponse.json({ error: "Please enter a valid email" }, { status: 400 });
   const from = process.env.LEADS_FROM_EMAIL || "Oramusa <hello@oramusa.com>";
